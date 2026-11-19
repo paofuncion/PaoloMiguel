@@ -75,25 +75,30 @@
   <footer><div class="wrap footer-inner"><span>(c) <span id="year"></span> PaoloFuncion. Made with curiosity.</span><a href="#home">BACK TO TOP ^</a></div></footer>
   <script>
     // Add future laboratory tasks by copying a task object into the matching list.
-    const midtermTasks=[
-      {
-        title:"Midterm Lab Task 01 — Using 3×3 Matrix Operations",
-        type:"Java",
-        description:"Accepts 9 integers from 0 to 9, stores them in a 3×3 matrix, and calculates each row sum, column sum, and both diagonal sums. It also allows the user to enter another matrix.",
-        links:[
-          {label:"View Java code",url:"midterm/matrix.java"},
-          {label:"View code screenshot",url:"images/task1-code.png"}
+    const midtermTasks = [
+    {
+        title: "Midterm Lab Task 01 – Using 3×3 Matrix Operations",
+        type: "PDF Report",
+        description: "Complete laboratory report for the 3×3 Matrix Operations activity.",
+        links: [
+            {
+                label: "View PDF Report",
+                url: "midterm/Matrix_LAB_REQUIREMENT.pdf"
+            }
         ]
-      },
-      {
-        title:"Midterm Lab Task 02 — Using 3 Dimensional Arrays",
-        type:"Java",
-        description:"Uses a 3-dimensional array to store Java, Database, and Networking grades for 3 students in each of 2 sections. It calculates and displays each student's average and each section's average.",
-        links:[
-          {label:"View Java code",url:"midterm/threedimarray%20task%202.java"}
+    },
+    {
+        title: "Midterm Lab Task 02 – Using 3 Dimensional Arrays",
+        type: "PDF Report",
+        description: "Complete laboratory report for the Three-Dimensional Array activity.",
+        links: [
+            {
+                label: "View PDF Report",
+                url: "midterm/3D_Array_LAB_REQUIREMENT.pdf"
+            }
         ]
-      }
-    ];
+    }
+];
     const finalTasks=[];
     function renderTasks(tasks,gridId,label){const grid=document.getElementById(gridId);grid.innerHTML="";if(!tasks.length){const empty=document.createElement("div");empty.className="coming";empty.innerHTML='<span class="coming-icon">+</span><div><h3>More projects are on the way.</h3><p>'+label+' tasks will appear here once they are ready. Stay tuned.</p></div><span class="coming-tag">COMING SOON</span>';grid.appendChild(empty);return;}tasks.forEach((task,i)=>{const card=document.createElement("article");card.className="task-card";const links=(task.links||[]).map(l=>'<a class="task-link" href="'+l.url+'" target="_blank" rel="noopener">'+l.label+' -></a>').join(' ');card.innerHTML='<div class="task-top"><span class="task-type">'+label+' / '+String(i+1).padStart(2,"0")+'  /  '+(task.type||"PROJECT")+'</span><span class="task-icon">{ }</span></div><h3></h3><p></p><div class="task-footer"><small>PAOLOFUNCION  /  LAB WORK</small><span>'+links+'</span></div>';card.querySelector("h3").textContent=task.title;card.querySelector("p").textContent=task.description||"";grid.appendChild(card);});}
     renderTasks(midtermTasks,"midterm-grid","MIDTERM");renderTasks(finalTasks,"final-grid","FINAL");document.getElementById("year").textContent=new Date().getFullYear();
