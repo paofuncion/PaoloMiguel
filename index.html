@@ -76,8 +76,23 @@
   <script>
     // Add future laboratory tasks by copying a task object into the matching list.
     const midtermTasks=[
-      {title:"Task 01 - 3x3 Matrix Operations",type:"Java",description:"Accepts nine numbers (0-9) with input validation, displays the 3x3 matrix, calculates each row and column sum, and finds both diagonal sums. Includes a try-again option.",links:[{label:"View Java code",url:"midterm/matrix.html"},{label:"View code screenshot",url:"images/task1-code.png"}]},
-      {title:"Task 02 - Three-Dimensional Array",type:"Java",description:"A Java laboratory activity focused on working with a three-dimensional array.",links:[{label:"View Java code",url:"midterm/threedimarray%20task%202.java"}]}
+      {
+        title:"Midterm Lab Task 01 — Using 3×3 Matrix Operations",
+        type:"Java",
+        description:"Accepts 9 integers from 0 to 9, stores them in a 3×3 matrix, and calculates each row sum, column sum, and both diagonal sums. It also allows the user to enter another matrix.",
+        links:[
+          {label:"View Java code",url:"midterm/matrix.java"},
+          {label:"View code screenshot",url:"images/task1-code.png"}
+        ]
+      },
+      {
+        title:"Midterm Lab Task 02 — Using 3 Dimensional Arrays",
+        type:"Java",
+        description:"Uses a 3-dimensional array to store Java, Database, and Networking grades for 3 students in each of 2 sections. It calculates and displays each student's average and each section's average.",
+        links:[
+          {label:"View Java code",url:"midterm/threedimarray%20task%202.java"}
+        ]
+      }
     ];
     const finalTasks=[];
     function renderTasks(tasks,gridId,label){const grid=document.getElementById(gridId);grid.innerHTML="";if(!tasks.length){const empty=document.createElement("div");empty.className="coming";empty.innerHTML='<span class="coming-icon">+</span><div><h3>More projects are on the way.</h3><p>'+label+' tasks will appear here once they are ready. Stay tuned.</p></div><span class="coming-tag">COMING SOON</span>';grid.appendChild(empty);return;}tasks.forEach((task,i)=>{const card=document.createElement("article");card.className="task-card";const links=(task.links||[]).map(l=>'<a class="task-link" href="'+l.url+'" target="_blank" rel="noopener">'+l.label+' -></a>').join(' ');card.innerHTML='<div class="task-top"><span class="task-type">'+label+' / '+String(i+1).padStart(2,"0")+'  /  '+(task.type||"PROJECT")+'</span><span class="task-icon">{ }</span></div><h3></h3><p></p><div class="task-footer"><small>PAOLOFUNCION  /  LAB WORK</small><span>'+links+'</span></div>';card.querySelector("h3").textContent=task.title;card.querySelector("p").textContent=task.description||"";grid.appendChild(card);});}
